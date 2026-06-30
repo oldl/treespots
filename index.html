@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treespots — Bruxelles, spots de fraîcheur</title>
+<meta name="description" content="Trouvez les spots de fraîcheur les plus ombragés de Bruxelles : rues arborées, jardins, promenades, parcs, forêts, étangs et fontaines, commune par commune.">
+<link rel="canonical" href="https://mini.appvelvet.com/treespots/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Treespots — Bruxelles, spots de fraîcheur">
+<meta property="og:description" content="Repérez les coins les plus frais de Bruxelles : arbres, parcs, forêts, étangs et fontaines, commune par commune.">
+<meta property="og:url" content="https://mini.appvelvet.com/treespots/">
+<meta property="og:image" content="https://mini.appvelvet.com/treespots/treespots.png">
+<meta property="og:image:alt" content="Aperçu de Treespots, la mini app qui repère les spots de fraîcheur à Bruxelles.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Treespots — Bruxelles, spots de fraîcheur">
+<meta name="twitter:description" content="Repérez les coins les plus frais de Bruxelles : arbres, parcs, forêts, étangs et fontaines, commune par commune.">
+<meta name="twitter:image" content="https://mini.appvelvet.com/treespots/treespots.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f2eb;
+  --surface: #ffffff;
+  --surface2: #ede9df;
+  --border: #c5d4b0;
+  --accent: #5a8a40;
+  --accent2: #8fad72;
+  --text: #162e0d;
+  --muted: #7a9e62;
+  --muted2: #4a7232;
+  --bar-l: #8fad72;
+  --bar-r: #5a8a40;
+  --noise-op: 0.25;
+  --glow-op: 0;
+  --shadow: rgba(22,46,13,0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0d1a0e;
+  --surface: #132b14;
+  --surface2: #1e3d20;
+  --border: #2a4a2c;
+  --accent: #6ab56c;
+  --accent2: #a8d9a9;
+  --text: #d8f0d8;
+  --muted: #3a6e3c;
+  --muted2: #7aaa7c;
+  --bar-l: #3a6e3c;
+  --bar-r: #6ab56c;
+  --noise-op: 0.4;
+  --glow-op: 1;
+  --shadow: rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { transition: background 0.3s, color 0.3s; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  transition: background 0.3s, color 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 15% 0%, rgba(106,181,108,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 600px at 85% 20%, rgba(106,181,108,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 500px 300px at 40% 80%, rgba(106,181,108,0.03) 0%, transparent 60%);
+  opacity: var(--glow-op);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--noise-op);
+  transition: opacity 0.4s;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.brand {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.brand-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.brand-link:hover {
+  border-bottom-color: currentColor;
+  opacity: 0.9;
+}
+
+.pipe { width: 1px; height: 12px; background: var(--border); }
+
+.commune-pill {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(56px, 14vw, 96px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -3px;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+h1 em { color: var(--accent); font-style: italic; }
+
+.tagline {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted2);
+  line-height: 1.55;
+  max-width: 470px;
+}
+
+.header-credit {
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--muted2) 70%, transparent);
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.header-credit .heart-mark {
+  display: inline-block;
+  line-height: 1;
+}
+
+.header-credit a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.header-credit a:hover {
+  color: var(--muted2);
+  border-bottom-color: currentColor;
+}
+
+.sunspots-chip {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 420px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent2) 50%, var(--border) 50%);
+  background: color-mix(in srgb, var(--surface) 72%, var(--surface2) 28%);
+  color: var(--muted2);
+  text-decoration: none;
+  box-shadow: 0 4px 14px var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.sunspots-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent2);
+  background: color-mix(in srgb, var(--surface) 58%, var(--surface2) 42%);
+}
+
+.sunspots-chip-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background: rgba(245, 166, 35, 0.16);
+}
+
+.sunspots-chip-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.sunspots-chip-title {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sunspots-chip-text {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted2);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent2);
+  color: var(--accent);
+  background: var(--surface2);
+}
+
+.toggle-track {
+  width: 28px;
+  height: 16px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  position: relative;
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .toggle-track {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform 0.25s, background 0.25s;
+}
+
+[data-theme="dark"] .toggle-thumb {
+  transform: translateX(12px);
+  background: #fff;
+}
+
+.weather-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 12px var(--shadow);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.weather-accent-bar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+  border-radius: 16px 0 0 16px;
+}
+
+.temp-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 150px;
+}
+
+.temp-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 16px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(255, 177, 84, 0.28), transparent 42%),
+    linear-gradient(180deg, rgba(255, 210, 154, 0.2), rgba(255, 233, 204, 0.08)),
+    var(--surface);
+  border: 1px solid rgba(220, 155, 72, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 8px 24px rgba(214, 141, 52, 0.08);
+}
+
+[data-theme="dark"] .temp-chip {
+  background:
+    radial-gradient(circle at 18% 50%, rgba(255, 177, 84, 0.2), transparent 40%),
+    linear-gradient(180deg, rgba(113, 66, 19, 0.32), rgba(50, 33, 12, 0.12)),
+    var(--surface);
+  border-color: rgba(255, 182, 92, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.temp-chip::after {
+  content: '';
+  position: absolute;
+  inset: auto 16px -8px auto;
+  width: 42px;
+  height: 18px;
+  background: radial-gradient(circle, rgba(255, 168, 62, 0.24), transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.temp-badge {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b76a1a;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .temp-badge {
+  color: #ffbd75;
+}
+
+.temp-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -2px;
+  text-shadow: 0 2px 14px rgba(214, 141, 52, 0.16);
+}
+
+.temp-feels { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.weather-text { flex: 1; }
+
+.weather-status {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.weather-meta { font-size: 12px; color: var(--muted); }
+.tree-total { text-align: right; flex-shrink: 0; }
+
+.tree-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.tree-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+.data-notice {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 12px;
+  color: var(--muted2);
+  margin-bottom: 28px;
+  line-height: 1.5;
+  transition: background 0.3s, border-color 0.3s;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.data-notice-sep {
+  opacity: 0.45;
+}
+
+.commune-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.commune-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.commune-select-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.commune-select {
+  appearance: none;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 999px;
+  padding: 10px 44px 10px 16px;
+  font: inherit;
+  font-size: 13px;
+  min-width: 220px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.commune-select-wrap {
+  position: relative;
+}
+
+.commune-select-wrap::after {
+  content: '▴\A▾';
+  white-space: pre;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-52%);
+  font-size: 9px;
+  line-height: 0.9;
+  color: var(--bg);
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.commune-select:hover {
+  filter: brightness(1.05);
+}
+
+.commune-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(106,181,108,0.18), 0 4px 16px var(--shadow);
+}
+
+[data-theme="dark"] .commune-select {
+  border-color: var(--accent2);
+  background: var(--accent2);
+  color: #102012;
+}
+
+[data-theme="dark"] .commune-select-wrap::after {
+  color: #102012;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.section-line { flex: 1; height: 1px; background: var(--border); }
+.axis-list { display: flex; flex-direction: column; gap: 10px; }
+
+.axis-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 26px;
+  transition: border-color 0.25s, background 0.25s, transform 0.2s, box-shadow 0.2s;
+  animation: slideUp 0.5s cubic-bezier(0.22,1,0.36,1) both;
+  box-shadow: 0 1px 6px var(--shadow);
+}
+
+.axis-card:hover {
+  border-color: color-mix(in srgb, var(--border) 72%, var(--accent2) 28%);
+  background: color-mix(in srgb, var(--surface) 82%, var(--surface2) 18%);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px var(--shadow);
+}
+
+.axis-card.water-card {
+  border-color: rgba(73, 145, 188, 0.28);
+  background:
+    linear-gradient(180deg, rgba(83, 166, 214, 0.08), transparent 38%),
+    var(--surface);
+}
+
+.axis-card.water-card:hover {
+  border-color: rgba(73, 145, 188, 0.42);
+  background:
+    linear-gradient(180deg, rgba(83, 166, 214, 0.12), transparent 42%),
+    color-mix(in srgb, var(--surface) 88%, #dff2ff 12%);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card-left { flex: 1; }
+
+.card-rank {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.card-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.saving-degrees {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.saving-label { font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+.shade-bar-wrap { margin-bottom: 16px; }
+
+.shade-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.shade-bar-label { font-size: 11px; color: var(--muted); }
+.shade-score-text { font-size: 11px; font-weight: 500; color: var(--muted2); }
+
+.shade-bar-track {
+  height: 5px;
+  background: var(--surface2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.shade-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--bar-l), var(--bar-r));
+  transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
+}
+
+.water-card .shade-bar-fill {
+  background: linear-gradient(90deg, #6fc8ff, #2f7fbc);
+}
+
+.stats-row {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.stat-cell {
+  flex: 1;
+  padding: 9px 13px;
+  border-right: 1px solid var(--border);
+}
+
+.stat-cell:last-child { border-right: none; }
+
+.stat-val {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  display: block;
+  white-space: nowrap;
+}
+
+.stat-lbl {
+  font-size: 10px;
+  color: var(--muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.species-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.species-tag {
+  font-size: 11px;
+  font-style: italic;
+  padding: 3px 10px;
+  background: rgba(90,138,64,0.08);
+  border: 1px solid var(--accent2);
+  border-radius: 20px;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.species-tag:hover {
+  border-color: var(--accent);
+  background: rgba(90,138,64,0.12);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .species-tag {
+  background: rgba(106,181,108,0.08);
+  border-color: rgba(106,181,108,0.25);
+  color: var(--accent2);
+}
+
+.species-unknown {
+  font-style: normal;
+  color: var(--muted);
+  background: var(--surface2);
+  border-color: var(--border);
+}
+
+.water-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(73, 145, 188, 0.22);
+  background: rgba(83, 166, 214, 0.1);
+  color: #2f678f;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+[data-theme="dark"] .water-meta {
+  border-color: rgba(111, 200, 255, 0.26);
+  background: rgba(83, 166, 214, 0.14);
+  color: #9ddcff;
+}
+
+.water-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.birds-section {
+  border-top: 1px solid var(--border);
+  margin-top: 14px;
+  padding-top: 12px;
+}
+
+.birds-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+}
+
+.birds-icon {
+  font-size: 15px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.birds-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.birds-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bird-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  background: rgba(90,138,64,0.05);
+  border: 1px solid rgba(90,138,64,0.15);
+  border-radius: 20px;
+  color: var(--muted2);
+  line-height: 1.4;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+[data-theme="dark"] .bird-tag {
+  background: rgba(106,181,108,0.05);
+  border-color: rgba(106,181,108,0.15);
+  color: var(--muted2);
+}
+
+.bird-tag:hover {
+  border-color: var(--accent2);
+  background: rgba(106,181,108,0.12);
+  transform: translateY(-1px);
+}
+
+.bird-tag em {
+  font-style: italic;
+  opacity: 0.7;
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.card-actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--accent2);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(106,181,108,0.18);
+  background: rgba(106,181,108,0.06);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.map-link:hover {
+  border-color: var(--accent2);
+  background: rgba(106,181,108,0.12);
+  transform: translateY(-1px);
+}
+
+.loader {
+  padding: 64px 0;
+  text-align: center;
+}
+
+.loader-leaves {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.loader-leaf {
+  font-size: 20px;
+  line-height: 1;
+  animation: leafPulse 1.6s ease-in-out infinite both;
+}
+
+.loader-leaf:nth-child(2) { animation-delay: 0.2s; }
+.loader-leaf:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes leafPulse {
+  0%, 100% { opacity: 0.2; transform: translateY(0) scale(0.9); }
+  50% { opacity: 1; transform: translateY(-3px) scale(1.05); }
+}
+
+.loader-text { font-size: 14px; color: var(--muted2); }
+.loader-sub { font-size: 12px; color: var(--muted); margin-top: 5px; opacity: 0.8; }
+
+.error-msg {
+  background: var(--surface);
+  border: 1px solid #e8b4b4;
+  border-radius: 12px;
+  padding: 20px 24px;
+  font-size: 13px;
+  color: #b05050;
+}
+
+.load-more-wrap {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.load-more-button {
+  appearance: none;
+  border: 1px solid rgba(106,181,108,0.18);
+  background: linear-gradient(180deg, rgba(106,181,108,0.12), rgba(106,181,108,0.06));
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 20px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.load-more-button:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent2);
+  background: linear-gradient(180deg, rgba(106,181,108,0.18), rgba(106,181,108,0.08));
+}
+
+.load-more-button[hidden],
+.load-more-sentinel[hidden],
+.load-more-meta[hidden] {
+  display: none;
+}
+
+.load-more-meta {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.load-more-sentinel {
+  width: 100%;
+  height: 1px;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 10;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  border-color: var(--accent2);
+  background: var(--surface2);
+}
+
+footer {
+  margin-top: 52px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--muted2);
+  font-style: italic;
+  display: block;
+  margin-bottom: 2px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">
+      <a class="brand brand-link" href="https://mini.appvelvet.com/" target="_blank" rel="noopener noreferrer">mini.appvelvet.com #08</a>
+      <div class="pipe"></div>
+      <span class="commune-pill" id="commune-pill">Bruxelles-Ville · Bruxelles</span>
+    </div>
+    <h1>Tree<em>spots</em></h1>
+    <p class="tagline" id="tagline">Les spots de fraîcheur les plus ombragés de Bruxelles-Ville — rues, jardins, promenades, parcs et forêts.</p>
+    <div class="header-credit">
+      <span>made with <span class="heart-mark">🩷</span> by</span>
+      <a href="https://www.linkedin.com/in/olivier-de-locht/" target="_blank" rel="noopener noreferrer">oldl</a>
+    </div>
+    <a class="sunspots-chip" href="https://sunspots.be/" target="_blank" rel="noopener noreferrer">
+      <span class="sunspots-chip-icon" aria-hidden="true">☀️</span>
+      <span class="sunspots-chip-copy">
+        <span class="sunspots-chip-title">Plutôt envie de soleil ?</span>
+        <span class="sunspots-chip-text">Découvrez les terrasses ensoleillées sur Sunspots.be.</span>
+      </span>
+    </a>
+
+    <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()" aria-label="Basculer thème">
+      <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      <span id="toggleLabel">Mode sombre</span>
+    </button>
+  </header>
+
+  <div id="weather-zone">
+    <div class="loader">
+      <div class="loader-leaves">
+        <div class="loader-leaf">🍁</div>
+        <div class="loader-leaf">🍁</div>
+        <div class="loader-leaf">🍁</div>
+      </div>
+      <div class="loader-text">Chargement des données...</div>
+      <div class="loader-sub">Open-Meteo · OSM Overpass · Patrimoine Bruxelles</div>
+    </div>
+  </div>
+
+  <div id="list-zone"></div>
+
+  <footer>
+    <div>
+      <span class="footer-brand">Treespots</span>
+      Un projet Appvelvet · 2026
+    </div>
+    <div style="text-align:right">
+      Sources : OSM Overpass<br>
+      Patrimoine Bruxelles · Open-Meteo
+    </div>
+  </footer>
+
+</div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut">
+  ↑ Haut
+</button>
+
+<script>
+const DATA_URL = './treespots-data.json';
+const DEFAULT_WEATHER = { temp: 24, feelsLike: 24, precip: 0 };
+const birdCache = {};
+const MIN_LOADING_MS = 2000;
+const PREFERRED_DEFAULT_COMMUNE = 'bruxelles';
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('toggleLabel').textContent = isDark ? 'Mode sombre' : 'Mode clair';
+  try { localStorage.setItem('treespots-theme', html.dataset.theme); } catch (e) {}
+}
+
+(function initTheme() {
+  try {
+    const saved = localStorage.getItem('treespots-theme');
+    if (saved) {
+      document.documentElement.dataset.theme = saved;
+      if (saved === 'dark') document.getElementById('toggleLabel').textContent = 'Mode clair';
+    }
+  } catch (e) {}
+})();
+
+function initBackToTop() {
+  const button = document.getElementById('back-to-top');
+  if (!button) return;
+
+  const toggleVisibility = () => {
+    button.classList.toggle('is-visible', window.scrollY > 500);
+  };
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', toggleVisibility, { passive: true });
+  toggleVisibility();
+}
+
+async function fetchWeather(lat, lon) {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,precipitation&timezone=Europe%2FBrussels`;
+  const r = await fetch(url);
+  if (!r.ok) throw new Error('Open-Meteo unreachable');
+  const d = await r.json();
+  return {
+    temp: d.current.temperature_2m,
+    feelsLike: d.current.apparent_temperature,
+    precip: d.current.precipitation
+  };
+}
+
+async function fetchStaticData() {
+  const r = await fetch(DATA_URL, { cache: 'no-store' });
+  if (!r.ok) throw new Error('Fichier treespots-data.json introuvable');
+  return r.json();
+}
+
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function communeBirdBounds(commune) {
+  const kmLat = 110.574;
+  const kmLon = 111.320 * Math.cos((commune.lat || 50.84) * Math.PI / 180);
+  const latPad = (commune.radiusKm || 2) / kmLat;
+  const lonPad = (commune.radiusKm || 2) / kmLon;
+  return {
+    minLat: commune.lat - latPad,
+    maxLat: commune.lat + latPad,
+    minLon: commune.lon - lonPad,
+    maxLon: commune.lon + lonPad
+  };
+}
+
+async function fetchBirdsForCommune(commune) {
+  if (birdCache[commune.slug]) return birdCache[commune.slug];
+
+  const bounds = communeBirdBounds(commune);
+  const url = `https://api.gbif.org/v1/occurrence/search?taxonKey=212&decimalLatitude=${bounds.minLat},${bounds.maxLat}&decimalLongitude=${bounds.minLon},${bounds.maxLon}&hasCoordinate=true&limit=300&country=BE&basisOfRecord=HUMAN_OBSERVATION`;
+
+  const promise = fetch(url, { signal: AbortSignal.timeout(12000) })
+    .then(r => r.ok ? r.json() : { results: [] })
+    .then(d => (d.results || []).map(o => ({
+      lat: o.decimalLatitude,
+      lon: o.decimalLongitude,
+      species: o.species || o.scientificName || null,
+      vernacular: o.vernacularName || null
+    })).filter(o => o.lat && o.lon && o.species))
+    .catch(() => []);
+
+  birdCache[commune.slug] = promise;
+  return promise;
+}
+
+function calcTempSaving(score, currentTemp) {
+  const base = (score / 100) * 6.5;
+  const amp = currentTemp >= 30 ? 1.5
+    : currentTemp >= 26 ? 1.25
+    : currentTemp >= 22 ? 1.05
+    : 0.75;
+  return Math.max(0.5, Math.min(8, Math.round(base * amp * 10) / 10));
+}
+
+function renderWeather(w, totalTrees, bxlCount, osmCount, communeLabel, generatedLabel = null) {
+  const diff = w.temp - w.feelsLike;
+  const msg = w.temp >= 30 ? 'Forte chaleur — l\'ombre est précieuse aujourd\'hui'
+    : w.temp >= 26 ? 'Temps chaud — les arbres font la différence'
+    : w.temp >= 20 ? 'Agréable — profitez du couvert végétal'
+    : 'Météo fraîche — les arbres restent une belle balade';
+  const tempBadge = w.temp >= 30 ? 'Chaleur'
+    : w.temp >= 26 ? 'Été urbain'
+    : w.temp >= 20 ? 'Temps doux'
+    : 'Air frais';
+
+  const feelsStr = diff > 0.5 ? `Ressenti ${w.feelsLike.toFixed(1)}°C · chaleur humide`
+    : diff < -0.5 ? `Ressenti ${w.feelsLike.toFixed(1)}°C · vent frais`
+    : `Ressenti ${w.feelsLike.toFixed(1)}°C`;
+
+  return `
+    <div class="weather-banner">
+      <div class="weather-accent-bar"></div>
+      <div class="temp-block">
+        <div class="temp-chip">
+          <div class="temp-main">${w.temp.toFixed(1)}°</div>
+          <div class="temp-badge">${tempBadge}</div>
+        </div>
+        <div class="temp-feels">${communeLabel} · maintenant</div>
+      </div>
+      <div class="weather-text">
+        <div class="weather-status">${msg}</div>
+        <div class="weather-meta">${feelsStr}</div>
+      </div>
+      <div class="tree-total">
+        <div class="tree-number">${totalTrees}</div>
+        <div class="tree-label">arbres<br>recensés</div>
+      </div>
+    </div>
+    <div class="data-notice">
+      <span>Données : <strong>${bxlCount}</strong> arbres patrimoniaux (Bruxelles) · Températures en temps réel via Open-Meteo</span>
+      ${generatedLabel ? `<span class="data-notice-sep">•</span><span>Données arbres générées le ${generatedLabel}.</span>` : ''}
+    </div>
+  `;
+}
+
+function haversineKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function birdIcon() {
+  return `<span class="birds-icon" aria-hidden="true">🐦</span>`;
+}
+
+function matchBirdsToAxes(axes, birds, radiusKm = 0.18) {
+  axes.forEach(axis => {
+    if (!axis.centLat || !axis.centLon) {
+      axis.birds = [];
+      return;
+    }
+
+    const nearby = birds.filter(bird =>
+      haversineKm(axis.centLat, axis.centLon, bird.lat, bird.lon) <= radiusKm
+    );
+
+    const speciesMap = {};
+    nearby.forEach(bird => {
+      if (!speciesMap[bird.species]) speciesMap[bird.species] = bird.vernacular;
+    });
+
+    axis.birds = Object.entries(speciesMap).slice(0, 5).map(([scientific, vernacular]) => ({
+      scientific,
+      vernacular
+    }));
+  });
+}
+
+function getGoogleMapsAxisUrl(axisName, communeLabel) {
+  const query = `${axisName}, ${communeLabel}, Bruxelles`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function getWikiSpeciesUrl(speciesName) {
+  return `https://fr.wikipedia.org/w/index.php?search=${encodeURIComponent(speciesName)}`;
+}
+
+function leafIcon() {
+  return `<span aria-hidden="true">🍃</span>`;
+}
+
+function renderListShell(totalAxes, communes, activeSlug) {
+  return `
+    <div class="commune-controls">
+      <div class="commune-select-wrap">
+        <span class="commune-select-label">Commune</span>
+        <select class="commune-select" id="commune-select">
+          ${communes.map(commune => `
+            <option value="${commune.slug}" ${commune.slug === activeSlug ? 'selected' : ''}>${commune.label}</option>
+          `).join('')}
+        </select>
+      </div>
+      <span style="font-size:11px;color:var(--muted)">Bruxelles-Capitale</span>
+    </div>
+    <div class="section-head">
+      <span class="section-title">Spots de fraîcheur</span>
+      <div class="section-line"></div>
+      <span style="font-size:11px;color:var(--muted);white-space:nowrap">${totalAxes} spots</span>
+    </div>
+    <div class="axis-list" id="axis-list"></div>
+    <div class="load-more-wrap" id="load-more-wrap">
+      <div class="load-more-meta" id="load-more-meta"></div>
+      <button class="load-more-button" id="load-more-button" type="button">Charger la suite</button>
+      <div class="load-more-sentinel" id="load-more-sentinel" aria-hidden="true"></div>
+    </div>
+  `;
+}
+
+function renderCard(axis, rank, weather, delay, communeLabel) {
+  const isWater = axis.placeType === 'water';
+  const isPotableWater = isWater && axis.waterKind === 'fontaine_potable';
+  const isOrnamentalFountain = isWater && axis.waterKind === 'fontaine_ornementale';
+  const saving = calcTempSaving(axis.score, weather.temp);
+  const savingColor = isWater ? '#2f7fbc'
+    : saving >= 5 ? 'var(--accent)'
+    : saving >= 3 ? '#a3e87e'
+    : 'var(--muted2)';
+  const mapUrl = axis.externalMapUrl || getGoogleMapsAxisUrl(axis.rue, communeLabel);
+
+  const speciesTags = axis.speciesList.length
+    ? axis.speciesList.map(s => `
+        <a class="species-tag" href="${getWikiSpeciesUrl(s)}" target="_blank" rel="noreferrer">
+          ${leafIcon()}
+          ${s}
+        </a>
+      `).join('')
+    : `<span class="species-tag species-unknown">espèce non renseignée</span>`;
+  const detailBlock = isWater
+    ? `<div class="water-meta"><span class="water-icon" aria-hidden="true">${isPotableWater ? '🚰' : '💧'}</span><span>${isPotableWater ? 'Point d’eau potable et fraîcheur de proximité' : isOrnamentalFountain ? 'Fontaine et fraîcheur de proximité' : 'Fraîcheur renforcée par l’eau et le couvert végétal proche'}</span></div>`
+    : `<div class="species-wrap">${speciesTags}</div>`;
+
+  const sourceMark = isWater ? 'CSV + OSM'
+    : axis.hasBxl && axis.hasOsm ? 'OSM + Patrimoine'
+    : axis.hasBxl ? 'Patrimoine Bxl'
+    : 'OpenStreetMap';
+  const rankLabel = axis.placeType === 'park'
+    ? 'parc ombragé'
+    : axis.placeType === 'garden'
+      ? 'jardin ombragé'
+      : axis.placeType === 'cemetery'
+        ? 'cimetière ombragé'
+        : axis.placeType === 'promenade'
+          ? 'promenade ombragée'
+          : axis.placeType === 'water'
+            ? isPotableWater ? 'fontaine potable fraîche'
+              : isOrnamentalFountain ? 'fontaine fraîche'
+              : 'point d’eau frais'
+            : axis.placeType === 'forest'
+              ? 'forêt ombragée'
+              : 'axe ombragé';
+  const heightStr = isWater
+    ? (axis.waterSurfaceM2 ? `${axis.waterSurfaceM2} m²` : (axis.waterAddress || '—'))
+    : (axis.avgH > 0 ? `~${axis.avgH} m` : '—');
+  const heightLabel = isWater ? (axis.waterSurfaceM2 ? 'surface eau' : 'adresse') : 'hauteur moy.';
+  const reachStr = isWater
+    ? (axis.waterSubtype || (isPotableWater ? 'fontaine potable' : 'point d’eau'))
+    : `~${axis.shadowReach} m`;
+  const reachLabel = isWater ? 'type' : 'portée ombre';
+  const birdHTML = axis.birds && axis.birds.length
+    ? `
+      <div class="birds-section">
+        <div class="birds-header">
+          ${birdIcon()}
+          <span class="birds-label">Observés ici</span>
+        </div>
+        <div class="birds-wrap">
+          ${axis.birds.map(bird => `
+            <a class="bird-tag" href="${getWikiSpeciesUrl(bird.vernacular || bird.scientific)}" target="_blank" rel="noreferrer">
+              ${bird.vernacular || bird.scientific.split(' ').slice(0, 2).join(' ')}
+              ${bird.vernacular ? `<em>${bird.scientific.split(' ').slice(0, 2).join(' ')}</em>` : ''}
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `
+    : '';
+
+  return `
+    <div class="axis-card ${isWater ? 'water-card' : ''}" style="animation-delay:${delay}ms">
+      <div class="card-top">
+        <div class="card-left">
+          <div class="card-rank">#${rank} ${rankLabel}</div>
+          <div class="card-name">${axis.rue}</div>
+        </div>
+        <div class="card-right">
+          <div class="saving-degrees" style="color:${savingColor}">−${saving}°C</div>
+          <div class="saving-label">ombre estimée</div>
+        </div>
+      </div>
+
+      <div class="shade-bar-wrap">
+        <div class="shade-bar-meta">
+          <span class="shade-bar-label">Couvert végétal</span>
+          <span class="shade-score-text">${axis.score} / 100</span>
+        </div>
+        <div class="shade-bar-track">
+          <div class="shade-bar-fill" style="width:${axis.score}%"></div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-cell">
+          <span class="stat-val">${axis.count}</span>
+          <span class="stat-lbl">${isWater ? 'arbres proches' : 'arbres'}</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-val">${heightStr}</span>
+          <span class="stat-lbl">${heightLabel}</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-val">${reachStr}</span>
+          <span class="stat-lbl">${reachLabel}</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-val" style="font-size:11px;color:var(--muted2)">${sourceMark}</span>
+          <span class="stat-lbl">source</span>
+        </div>
+      </div>
+
+      ${detailBlock}
+      ${birdHTML}
+      <div class="card-actions">
+        <a class="map-link" href="${mapUrl}" target="_blank" rel="noreferrer">
+          Voir sur Google Maps
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function mountAxisFeed(axes, weather, communeLabel) {
+  const PAGE_SIZE = 15;
+  const listEl = document.getElementById('axis-list');
+  const buttonEl = document.getElementById('load-more-button');
+  const metaEl = document.getElementById('load-more-meta');
+  const sentinelEl = document.getElementById('load-more-sentinel');
+
+  if (!listEl || !buttonEl || !metaEl || !sentinelEl) return;
+
+  let renderedCount = 0;
+  let observer = null;
+
+  function updateControls() {
+    const remaining = Math.max(0, axes.length - renderedCount);
+    if (remaining === 0) {
+      metaEl.textContent = `Tous les ${axes.length} axes sont affichés.`;
+      buttonEl.hidden = true;
+      sentinelEl.hidden = true;
+      return;
+    }
+
+    metaEl.textContent = `+ ${remaining} autres axes répertoriés`;
+    buttonEl.hidden = false;
+    sentinelEl.hidden = false;
+  }
+
+  function appendNextPage() {
+    if (renderedCount >= axes.length) return;
+
+    const nextAxes = axes.slice(renderedCount, renderedCount + PAGE_SIZE);
+    nextAxes.forEach((axis, index) => {
+      const absoluteIndex = renderedCount + index;
+      listEl.insertAdjacentHTML(
+        'beforeend',
+        renderCard(axis, absoluteIndex + 1, weather, Math.min(index * 55, 220), communeLabel)
+      );
+    });
+    renderedCount += nextAxes.length;
+    updateControls();
+  }
+
+  buttonEl.addEventListener('click', appendNextPage);
+  appendNextPage();
+
+  if ('IntersectionObserver' in window) {
+    observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      appendNextPage();
+      if (renderedCount >= axes.length && observer) observer.disconnect();
+    }, { rootMargin: '240px 0px' });
+    observer.observe(sentinelEl);
+  } else {
+    sentinelEl.hidden = true;
+  }
+}
+
+function updateCommuneHeader(communeLabel) {
+  document.getElementById('commune-pill').textContent = `${communeLabel} · Bruxelles`;
+  document.getElementById('tagline').textContent = `Les spots de fraîcheur les plus ombragés de ${communeLabel} — rues, jardins, promenades, parcs et forêts.`;
+}
+
+async function renderCommuneView(data, communeSlug) {
+  const communes = Array.isArray(data.communes) ? data.communes : [];
+  const activeCommune = communes.find(commune => commune.slug === communeSlug)
+    || communes.find(commune => commune.slug === PREFERRED_DEFAULT_COMMUNE)
+    || communes.find(commune => commune.slug === data.defaultCommune)
+    || communes[0];
+
+  if (!activeCommune) {
+    throw new Error('Aucune commune disponible');
+  }
+
+  updateCommuneHeader(activeCommune.label);
+
+  const weather = await fetchWeather(activeCommune.lat, activeCommune.lon).catch(() => null);
+  const weatherForCards = weather || DEFAULT_WEATHER;
+  const generatedLabel = data.generated
+    ? new Date(data.generated).toLocaleString('fr-BE')
+    : 'date inconnue';
+
+  let weatherHtml = weather
+    ? renderWeather(
+        weather,
+        activeCommune.totalTrees || 0,
+        activeCommune.sourceCounts?.bxlRemarkable || 0,
+        activeCommune.sourceCounts?.osmTrees || 0,
+        activeCommune.label,
+        generatedLabel
+      )
+    : `
+      <div class="error-msg">
+        ⚠️ Météo indisponible pour le moment.<br>
+        <span style="font-size:11px;opacity:0.7;margin-top:6px;display:block">Les données arbres statiques restent disponibles.</span>
+      </div>
+    `;
+  if (!weather) {
+    weatherHtml += `
+      <div class="data-notice">
+        <span>Données arbres générées le ${generatedLabel}.</span>
+      </div>
+    `;
+  }
+  document.getElementById('weather-zone').innerHTML = weatherHtml;
+
+  const axes = Array.isArray(activeCommune.axes)
+    ? activeCommune.axes.filter(axis => axis.placeType !== 'water')
+    : [];
+  if (axes.length === 0) {
+    document.getElementById('list-zone').innerHTML = `
+      <div class="error-msg">
+        Aucun axe avec suffisamment d'arbres trouvé pour ${activeCommune.label}.
+      </div>`;
+    return;
+  }
+
+  document.getElementById('list-zone').innerHTML = renderListShell(axes.length, communes, activeCommune.slug);
+  document.getElementById('commune-select').addEventListener('change', event => {
+    renderCommuneView(data, event.target.value);
+  }, { once: true });
+  mountAxisFeed(axes, weatherForCards, activeCommune.label);
+
+  fetchBirdsForCommune(activeCommune).then(birds => {
+    if (!birds.length) return;
+    matchBirdsToAxes(axes, birds);
+    document.getElementById('list-zone').innerHTML = renderListShell(axes.length, communes, activeCommune.slug);
+    document.getElementById('commune-select').addEventListener('change', event => {
+      renderCommuneView(data, event.target.value);
+    }, { once: true });
+    mountAxisFeed(axes, weatherForCards, activeCommune.label);
+  });
+}
+
+async function main() {
+  try {
+    const [data] = await Promise.all([
+      fetchStaticData(),
+      wait(MIN_LOADING_MS)
+    ]);
+    await renderCommuneView(data, PREFERRED_DEFAULT_COMMUNE);
+  } catch (err) {
+    console.error('Treespots error:', err);
+    document.getElementById('weather-zone').innerHTML = `
+      <div class="error-msg">
+        ⚠️ Erreur de chargement : ${err.message}<br>
+        <span style="font-size:11px;opacity:0.7;margin-top:6px;display:block">Vérifiez votre connexion et rechargez la page.</span>
+      </div>`;
+    document.getElementById('list-zone').innerHTML = `
+      <div class="error-msg">
+        Impossible d'afficher le classement des axes ombragés pour le moment.
+      </div>`;
+  }
+}
+
+main();
+initBackToTop();
+</script>
+</body>
+</html>

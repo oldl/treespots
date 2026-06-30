@@ -1,0 +1,120 @@
+type,nom,sous_type,gestionnaire,surface_m2,adresse,commune,statut,potable,dog_friendly,lat,lon,google_maps
+étang_bassin,Bassin 1 Château du Belvédère,Bassin,Autre,19.19,,,,,,50.891264475475,4.354779777753458,https://www.google.com/maps/search/?api=1&query=50.891264475475%2C4.354779777753458
+étang_bassin,Mare du Kattenberg aval,Etang,Bruxelles,84.08,,,,,,50.8923347140776,4.3498900707741015,https://www.google.com/maps/search/?api=1&query=50.8923347140776%2C4.3498900707741015
+étang_bassin,Bassin octogonal,Bassin,Bruxelles,455.15,,,,,,50.84363516461737,4.363153572158985,https://www.google.com/maps/search/?api=1&query=50.84363516461737%2C4.363153572158985
+étang_bassin,Bassin circulaire,Bassin,Bruxelles,560.56,,,,,,50.84698304620597,4.384166134186724,https://www.google.com/maps/search/?api=1&query=50.84698304620597%2C4.384166134186724
+étang_bassin,Bassin rectangulaire est du Square Palmerston,Bassin,Bruxelles,137.79,,,,,,50.84691193301553,4.381636689823937,https://www.google.com/maps/search/?api=1&query=50.84691193301553%2C4.381636689823937
+étang_bassin,Etang 1 du Tweebeek,Etang,Bruxelles,662.83,,,,,,50.900030724452215,4.393662528089466,https://www.google.com/maps/search/?api=1&query=50.900030724452215%2C4.393662528089466
+étang_bassin,Etang 5 du Tweebeek,Etang,Bruxelles,331.83,,,,,,50.90063016304881,4.397211067896533,https://www.google.com/maps/search/?api=1&query=50.90063016304881%2C4.397211067896533
+étang_bassin,Bassin îlot Boulet/Marché aux Grains,Bassin,Autre,67.54,,,,,,50.8492861344772,4.344860468507097,https://www.google.com/maps/search/?api=1&query=50.8492861344772%2C4.344860468507097
+étang_bassin,Bassin des Otaries,Bassin,Bruxelles,73.14,,,,,,50.838454963593364,4.379171853535252,https://www.google.com/maps/search/?api=1&query=50.838454963593364%2C4.379171853535252
+étang_bassin,Etang du Silure,Etang,Autre,91085.78,,,,,,50.88347984986017,4.367415555183314,https://www.google.com/maps/search/?api=1&query=50.88347984986017%2C4.367415555183314
+étang_bassin,Etang Osseghem,Etang,Bruxelles,8197.0,,,,,,50.89533973619168,4.344697958698666,https://www.google.com/maps/search/?api=1&query=50.89533973619168%2C4.344697958698666
+étang_bassin,Bassin rectangulaire à gradins,Bassin,Bruxelles,227.83,,,,,,50.84695408712603,4.383105221074148,https://www.google.com/maps/search/?api=1&query=50.84695408712603%2C4.383105221074148
+étang_bassin,Bassin Sud de la place de la Belgique,Bassin,Bruxelles,3432.42,,,,,,50.89794222558836,4.338789750747695,https://www.google.com/maps/search/?api=1&query=50.89794222558836%2C4.338789750747695
+étang_bassin,Etang Prince Charles,Etang,Autre,2945.33,,,,,,50.88129880924885,4.351347871622058,https://www.google.com/maps/search/?api=1&query=50.88129880924885%2C4.351347871622058
+étang_bassin,Etang Clémentine,Etang,Bruxelles,2496.08,,,,,,50.88585084722164,4.343575439730985,https://www.google.com/maps/search/?api=1&query=50.88585084722164%2C4.343575439730985
+étang_bassin,Bassin Saint-Gery/ de la Senne,Bassin,Autre,205.49,,,,,,50.8475247113045,4.346565279731715,https://www.google.com/maps/search/?api=1&query=50.8475247113045%2C4.346565279731715
+étang_bassin,Etang Hoogleest,Etang,Autre,7089.96,,,,,,50.88668493731505,4.373520991159791,https://www.google.com/maps/search/?api=1&query=50.88668493731505%2C4.373520991159791
+étang_bassin,Mare Château du Belvédère,Etang,Autre,62.73,,,,,,50.89051316048859,4.354408599421138,https://www.google.com/maps/search/?api=1&query=50.89051316048859%2C4.354408599421138
+étang_bassin,Bassin rectangulaire ouest du Square Palmerston,Bassin,Bruxelles,136.31,,,,,,50.84687591128913,4.380391221533014,https://www.google.com/maps/search/?api=1&query=50.84687591128913%2C4.380391221533014
+étang_bassin,Etang aux Palmiers,Etang,Autre,9144.54,,,,,,50.892145121920976,4.3603203473551995,https://www.google.com/maps/search/?api=1&query=50.892145121920976%2C4.3603203473551995
+étang_bassin,Etang 1 Stuyvenberg,Etang,Autre,876.83,,,,,,50.89094667856262,4.348223251680779,https://www.google.com/maps/search/?api=1&query=50.89094667856262%2C4.348223251680779
+étang_bassin,Etang de la Carpe,Etang,Autre,1258.34,,,,,,50.882830652531446,4.370172669054651,https://www.google.com/maps/search/?api=1&query=50.882830652531446%2C4.370172669054651
+étang_bassin,Mare de lagunage 1 de la Ferme Nos Pilifs,Etang,Autre,146.29,,,,,,50.90464733266046,4.38893871539186,https://www.google.com/maps/search/?api=1&query=50.90464733266046%2C4.38893871539186
+étang_bassin,Etang Noir,Etang,Autre,11967.39,,,,,,50.88899872958701,4.368246850126705,https://www.google.com/maps/search/?api=1&query=50.88899872958701%2C4.368246850126705
+étang_bassin,Bassin Sainte-Catherine,Bassin,Bruxelles,470.12,,,,,,50.85127688079221,4.348461003169134,https://www.google.com/maps/search/?api=1&query=50.85127688079221%2C4.348461003169134
+étang_bassin,Bassin Cheval à l'Abreuvoir,Bassin,Bruxelles,147.14,,,,,,50.84694337542402,4.382729662327347,https://www.google.com/maps/search/?api=1&query=50.84694337542402%2C4.382729662327347
+étang_bassin,Bassin Nord de la place de la Belgique,Bassin,Bruxelles,2407.9,,,,,,50.89860700291751,4.33819319808919,https://www.google.com/maps/search/?api=1&query=50.89860700291751%2C4.33819319808919
+étang_bassin,Etang 4 du Tweebeek,Etang,Bruxelles,289.47,,,,,,50.9004794132794,4.396580997742983,https://www.google.com/maps/search/?api=1&query=50.9004794132794%2C4.396580997742983
+étang_bassin,Bassin fontaine du Jardin Colonial,Bassin,Bruxelles,72.44,,,,,,50.88907334316426,4.3457669161228205,https://www.google.com/maps/search/?api=1&query=50.88907334316426%2C4.3457669161228205
+étang_bassin,Monument aux pionniers belges au Congo,Bassin,Bruxelles,35.45,,,,,,50.84236664380929,4.387794715279332,https://www.google.com/maps/search/?api=1&query=50.84236664380929%2C4.387794715279332
+étang_bassin,Etang du Héron,Etang,Autre,47154.56,,,,,,50.87946916039171,4.362605182254251,https://www.google.com/maps/search/?api=1&query=50.87946916039171%2C4.362605182254251
+étang_bassin,Etang du 21 juillet,Etang,Autre,25087.71,,,,,,50.88266058679253,4.357116425616996,https://www.google.com/maps/search/?api=1&query=50.88266058679253%2C4.357116425616996
+étang_bassin,Bassin multilobé de l'Abbaye de la Cambre,Bassin,Bruxelles,53.0,,,,,,50.817597875389666,4.373429342795307,https://www.google.com/maps/search/?api=1&query=50.817597875389666%2C4.373429342795307
+étang_bassin,Bassin Jardins du Fleuriste Est,Bassin,Bruxelles,454.2,,,,,,50.885230168878905,4.349182056945457,https://www.google.com/maps/search/?api=1&query=50.885230168878905%2C4.349182056945457
+étang_bassin,Bassin Jardins du Fleuriste Ouest,Bassin,Bruxelles,453.5,,,,,,50.88505393364029,4.348242300514659,https://www.google.com/maps/search/?api=1&query=50.88505393364029%2C4.348242300514659
+étang_bassin,Bassin de la Cité Modèle,Bassin,Autre,1103.18,,,,,,50.89633529006497,4.326077100359593,https://www.google.com/maps/search/?api=1&query=50.89633529006497%2C4.326077100359593
+étang_bassin,Etang 2 Stuyvenberg,Etang,Autre,1577.59,,,,,,50.89086605724733,4.347067013158626,https://www.google.com/maps/search/?api=1&query=50.89086605724733%2C4.347067013158626
+étang_bassin,Mare de lagunage 2 de la Ferme Nos Pilifs,Etang,Autre,64.01,,,,,,50.90429922843224,4.3903210820119485,https://www.google.com/maps/search/?api=1&query=50.90429922843224%2C4.3903210820119485
+étang_bassin,Bassin Osseghem - Monument Adolphe Max,Bassin,Bruxelles,126.8,,,,,,50.893366247422634,4.343762285729142,https://www.google.com/maps/search/?api=1&query=50.893366247422634%2C4.343762285729142
+étang_bassin,Etang Marie-Louise,Etang,Bruxelles,15375.13,,,,,,50.84684321297078,4.378898774609988,https://www.google.com/maps/search/?api=1&query=50.84684321297078%2C4.378898774609988
+étang_bassin,Etang Tour et Taxis,Etang,Autre,3867.4,,,,,,50.86657014273416,4.346881181474485,https://www.google.com/maps/search/?api=1&query=50.86657014273416%2C4.346881181474485
+étang_bassin,Bassin 2 Château du Belvédère,Bassin,Autre,94.71,,,,,,50.89056166922205,4.35499326508569,https://www.google.com/maps/search/?api=1&query=50.89056166922205%2C4.35499326508569
+étang_bassin,Etang Sobieski,Etang,Bruxelles,2527.58,,,,,,50.88591952451779,4.344840822635136,https://www.google.com/maps/search/?api=1&query=50.88591952451779%2C4.344840822635136
+étang_bassin,Le Bassin Vert,Bassin,Bruxelles,1142.19,,,,,,50.84566344701848,4.364207678966406,https://www.google.com/maps/search/?api=1&query=50.84566344701848%2C4.364207678966406
+étang_bassin,Etang du Pavillon,Etang,Autre,3874.12,,,,,,50.87904743827929,4.3658827790522015,https://www.google.com/maps/search/?api=1&query=50.87904743827929%2C4.3658827790522015
+étang_bassin,Etang Nederleest,Etang,Autre,2779.38,,,,,,50.88430795742304,4.371619165896868,https://www.google.com/maps/search/?api=1&query=50.88430795742304%2C4.371619165896868
+étang_bassin,Douves de la Porte de Halle,Bassin,Bruxelles,178.98,,,,,,50.83280675800684,4.3450194146699825,https://www.google.com/maps/search/?api=1&query=50.83280675800684%2C4.3450194146699825
+étang_bassin,Etang 2 Stuyvenberg,Etang,Autre,1891.78,,,,,,50.88774207043331,4.345875053893831,https://www.google.com/maps/search/?api=1&query=50.88774207043331%2C4.345875053893831
+étang_bassin,Mare Domaine Royal de Laeken,Etang,Autre,315.9,,,,,,50.884230697046874,4.360956413429599,https://www.google.com/maps/search/?api=1&query=50.884230697046874%2C4.360956413429599
+étang_bassin,Etang Jardin du palais royal de Bruxelles,Etang,Autre,763.99,,,,,,50.841188275362796,4.3609185843371705,https://www.google.com/maps/search/?api=1&query=50.841188275362796%2C4.3609185843371705
+étang_bassin,Etang du Centre de Recherche Solvay,Etang,Autre,1774.95,,,,,,50.901315838120624,4.399582369947539,https://www.google.com/maps/search/?api=1&query=50.901315838120624%2C4.399582369947539
+étang_bassin,Etang Léopold,Etang,Bruxelles,7258.91,,,,,,50.838893022416194,4.379956912489,https://www.google.com/maps/search/?api=1&query=50.838893022416194%2C4.379956912489
+étang_bassin,Etang du Bois de la Cambre,Etang,Bruxelles,60151.64,,,,,,50.80422797893703,4.381373884227713,https://www.google.com/maps/search/?api=1&query=50.80422797893703%2C4.381373884227713
+étang_bassin,Mare de lagunage 3 de la Ferme Nos Pilifs,Etang,Autre,131.12,,,,,,50.904415090457526,4.390187824395855,https://www.google.com/maps/search/?api=1&query=50.904415090457526%2C4.390187824395855
+étang_bassin,Mare du Kattenberg amont,Etang,Bruxelles,244.3,,,,,,50.89212053782796,4.351733093771682,https://www.google.com/maps/search/?api=1&query=50.89212053782796%2C4.351733093771682
+étang_bassin,Bassin Pierre le Grand,Bassin,Bruxelles,3.69,,,,,,50.842907614302064,4.363687656546081,https://www.google.com/maps/search/?api=1&query=50.842907614302064%2C4.363687656546081
+étang_bassin,Bassin Fontaine Anspach,Bassin,Bruxelles,1801.81,,,,,,50.85328380224619,4.34706663740771,https://www.google.com/maps/search/?api=1&query=50.85328380224619%2C4.34706663740771
+étang_bassin,Bassin KVS / Théatre Flamand,Bassin,Bruxelles,601.05,,,,,,50.8555194685575,4.350476661840334,https://www.google.com/maps/search/?api=1&query=50.8555194685575%2C4.350476661840334
+étang_bassin,Etang 2 du Tweebeek,Etang,Bruxelles,551.33,,,,,,50.90021040709386,4.395686427077368,https://www.google.com/maps/search/?api=1&query=50.90021040709386%2C4.395686427077368
+étang_bassin,Etang 3 du Tweebeek,Etang,Bruxelles,195.01,,,,,,50.90040554202077,4.39591806054403,https://www.google.com/maps/search/?api=1&query=50.90040554202077%2C4.39591806054403
+étang_bassin,Fontaine Source Sainte-Anne,Bassin,Bruxelles,2.92,,,,,,50.88738744185948,4.35274964851275,https://www.google.com/maps/search/?api=1&query=50.88738744185948%2C4.35274964851275
+étang_bassin,Mare à côté entreprise Solvay,Etang,Autre,341.67,,,,,,50.90171211400282,4.398117418787202,https://www.google.com/maps/search/?api=1&query=50.90171211400282%2C4.398117418787202
+étang_bassin,Bassin Prison Haren,Bassin,Autre,82.27,,,,,,50.89767542215239,4.426549443945616,https://www.google.com/maps/search/?api=1&query=50.89767542215239%2C4.426549443945616
+fontaine_potable,3  Avenue du Maelbeek - Bruxelles,fontaine eau potable,Région,,3  Avenue du Maelbeek - Bruxelles,,actif,oui,,50.83792971215589,4.3805997844168285,https://www.google.com/maps/search/?api=1&query=%2C
+fontaine_potable,4  Place du Trône - Bruxelles,fontaine eau potable,Région,,4  Place du Trône - Bruxelles,,actif,oui,,50.840475716114504,4.364732309917527,https://www.google.com/maps/search/?api=1&query=%2C
+fontaine_potable,143  Avenue Franklin Roosevelt - Bruxelles,fontaine eau potable,Région,,143  Avenue Franklin Roosevelt - Bruxelles,,actif,oui,,50.7973147153405,4.3952591810820945,https://www.google.com/maps/search/?api=1&query=%2C
+fontaine_potable,3  Boulevard du Midi - Bruxelles,fontaine eau potable,Région,,3  Boulevard du Midi - Bruxelles,,actif,oui,,50.844554326725024,4.339039134297502,https://www.google.com/maps/search/?api=1&query=%2C
+fontaine_potable,Avenue Emile De Mot - Abbaye Cambre - Bruxelles,fontaine eau potable,Région,,Avenue Emile De Mot - Abbaye Cambre - Bruxelles,,actif,oui,,50.81769353221264,4.3725815431024735,https://www.google.com/maps/search/?api=1&query=%2C
+fontaine_potable,8 Place Jean Rey - Bruxelles,fontaine eau potable,Région,,8 Place Jean Rey - Bruxelles,,actif,oui,,50.84066888878377,4.379690831870162,https://www.google.com/maps/search/?api=1&query=%2C
+fontaine_potable,2  Porte de Ninove - Bruxelles,fontaine eau potable,Région,,2  Porte de Ninove - Bruxelles,,actif,oui,,50.84931212124725,4.338193833786529,https://www.google.com/maps/search/?api=1&query=%2C
+fontaine_ornementale,Fontaine La Minerve,standard,Bruxelles,,"Place du Grand Sablon, 5",Bruxelles,actif,?,?,50.841246,4.354528,https://www.google.com/maps/search/?api=1&query=50.841246%2C4.354528
+fontaine_ornementale,Fontaine Agora Notre-Dame,standard,Bruxelles,,"Parvis Notre-Dame, 8",Bruxelles,actif,?,?,50.878,4.35568,https://www.google.com/maps/search/?api=1&query=50.878%2C4.35568
+fontaine_ornementale,Fontaine Breughelienne Carnaval,abreuvoir,Bruxelles,,"Rue de Rollebeek, 11",Bruxelles,actif,?,?,50.84207,4.35273,https://www.google.com/maps/search/?api=1&query=50.84207%2C4.35273
+fontaine_ornementale,Fontaine Physiognomique de Magritte,standard,Bruxelles,,"Place de Ninove, 4",Bruxelles,actif,?,?,50.84925,4.33871,https://www.google.com/maps/search/?api=1&query=50.84925%2C4.33871
+fontaine_ornementale,Fontaine Anspach petit bassin,standard,Bruxelles,,"Quai aux Briques, 8",Bruxelles,actif,?,?,50.85129,4.34845,https://www.google.com/maps/search/?api=1&query=50.85129%2C4.34845
+fontaine_ornementale,Fontaine Bourse,standard,Bruxelles,,"Rue Auguste Orts, 3",Bruxelles,actif,?,?,50.84859,4.3489,https://www.google.com/maps/search/?api=1&query=50.84859%2C4.3489
+fontaine_ornementale,Fontaine-abreuvoir la fille à la coquille,standard,Bruxelles,,"Place des Palais, 1",Bruxelles,actif,?,?,50.84349,4.36307,https://www.google.com/maps/search/?api=1&query=50.84349%2C4.36307
+fontaine_ornementale,Cascade Square Marie-Louise,standard,Bruxelles,,"Square Marie-Louise, 49",Bruxelles,actif,?,?,50.84688,4.3798,https://www.google.com/maps/search/?api=1&query=50.84688%2C4.3798
+fontaine_ornementale,Emile Bockstael bassin d'eau ouest,standard,Bruxelles,,"Rue Tielemans, 21",Bruxelles,actif,?,?,50.87681,4.34747,https://www.google.com/maps/search/?api=1&query=50.87681%2C4.34747
+fontaine_ornementale,Fontaine de Brouckère Palfyn,standard,Bruxelles,,"Avenue Jean Palfyn, 18",Bruxelles,actif,?,?,50.89324,4.33234,https://www.google.com/maps/search/?api=1&query=50.89324%2C4.33234
+fontaine_ornementale,Fontaine de la Chapelle,standard,Bruxelles,,"Place de la Chapelle, 17",Bruxelles,actif,?,?,50.84131,4.35153,https://www.google.com/maps/search/?api=1&query=50.84131%2C4.35153
+fontaine_ornementale,Fontaine Breughelienne le Singe,abreuvoir,Bruxelles,,"Rue de l'Epée, 4",Bruxelles,actif,?,?,50.8383835,4.35052,https://www.google.com/maps/search/?api=1&query=50.8383835%2C4.35052
+fontaine_ornementale,Fontaine du Vieux Marché aux Grains,standard,Bruxelles,,"Rue du Vieux Marché aux Grains, 19",Bruxelles,actif,?,?,50.8498,4.34614,https://www.google.com/maps/search/?api=1&query=50.8498%2C4.34614
+fontaine_ornementale,Fontaine Maelbeek,standard,Bruxelles,,"Rue Joseph II, 118",Bruxelles,actif,?,?,50.84418,4.37832,https://www.google.com/maps/search/?api=1&query=50.84418%2C4.37832
+fontaine_ornementale,Jet Square Marie-Louise,standard,Bruxelles,,"Square Marie-Louise, 43",Bruxelles,actif,?,?,50.84684,4.37904,https://www.google.com/maps/search/?api=1&query=50.84684%2C4.37904
+fontaine_ornementale,Fontaine Lions sud,standard,Bruxelles,,"Rue de l'Amigo, 2",Bruxelles,actif,?,?,50.84637,4.35146,https://www.google.com/maps/search/?api=1&query=50.84637%2C4.35146
+fontaine_ornementale,Fontaine Saint-Michel terassant le démon,standard,Bruxelles,,"Grand-Place, 8",Bruxelles,actif,?,?,50.8464,4.35182,https://www.google.com/maps/search/?api=1&query=50.8464%2C4.35182
+fontaine_ornementale,Fontaine Peter Benoit,standard,Bruxelles,,"Rue François Vekemans, 89",Bruxelles,actif,?,?,50.89549,4.38839,https://www.google.com/maps/search/?api=1&query=50.89549%2C4.38839
+fontaine_ornementale,Fontaine Breughelienne la Galanterie,abreuvoir,Bruxelles,,"Rue du Vieux Marché aux Grains, 1",Bruxelles,actif,?,?,50.85035,4.34706,https://www.google.com/maps/search/?api=1&query=50.85035%2C4.34706
+fontaine_ornementale,Fontaine Breughelienne les Commères à la fontaine,abreuvoir,Bruxelles,,"Rue Blaes, 172",Bruxelles,actif,?,?,50.83732,4.34694,https://www.google.com/maps/search/?api=1&query=50.83732%2C4.34694
+fontaine_ornementale,Fontaine Anspach grand bassin,standard,Bruxelles,,"Rue du Grand Hospice, 54",Bruxelles,actif,?,?,50.85338,4.34701,https://www.google.com/maps/search/?api=1&query=50.85338%2C4.34701
+fontaine_ornementale,Fontaine les Quais,standard,Bruxelles,,"Boulevard d'Ypres, 1",Bruxelles,actif,?,?,50.85557,4.34718,https://www.google.com/maps/search/?api=1&query=50.85557%2C4.34718
+fontaine_ornementale,Fontaine bassin octogonal,standard,Bruxelles,,"Place des Palais, 1",Bruxelles,actif,?,?,50.84366,4.36316,https://www.google.com/maps/search/?api=1&query=50.84366%2C4.36316
+fontaine_ornementale,Fontaine bassin rond,standard,Bruxelles,,"Rue de la Loi, 1",Bruxelles,actif,?,?,50.84567,4.36421,https://www.google.com/maps/search/?api=1&query=50.84567%2C4.36421
+fontaine_ornementale,Bassin rectangulaire est Square Palmerston,standard,Bruxelles,,"Avenue Palmerston, 24",Bruxelles,actif,?,?,50.84692,4.38164,https://www.google.com/maps/search/?api=1&query=50.84692%2C4.38164
+fontaine_ornementale,Fontaine Lions nord,standard,Bruxelles,,"Rue de l'Amigo, 2",Bruxelles,actif,?,?,50.84644,4.35142,https://www.google.com/maps/search/?api=1&query=50.84644%2C4.35142
+fontaine_ornementale,Fontaine Saint-Jacques,standard,Bruxelles,,"Rue du Marché au Charbon, 89",Bruxelles,actif,?,?,50.84554,4.34764,https://www.google.com/maps/search/?api=1&query=50.84554%2C4.34764
+fontaine_ornementale,Fontaine Léopold cours d'eau,standard,Bruxelles,,"Rue Belliard, 137A",Bruxelles,actif,?,?,50.83844,4.37916,https://www.google.com/maps/search/?api=1&query=50.83844%2C4.37916
+fontaine_ornementale,Fontaine aux fleurs,standard,Bruxelles,,"Rue des Chartreux, 75",Bruxelles,actif,?,?,50.84811,4.34357,https://www.google.com/maps/search/?api=1&query=50.84811%2C4.34357
+fontaine_ornementale,Fontaine Porte d'Anvers,standard,Bruxelles,,"Rue de Laeken, 180",Bruxelles,actif,?,?,50.85656,4.35293,https://www.google.com/maps/search/?api=1&query=50.85656%2C4.35293
+fontaine_ornementale,Bassin rectangulaire à gradins Square Ambiorix,standard,Bruxelles,,"Square Ambiorix, 5",Bruxelles,actif,?,?,50.84696,4.38312,https://www.google.com/maps/search/?api=1&query=50.84696%2C4.38312
+fontaine_ornementale,Bassin demi-rond Square Ambiorix,standard,Bruxelles,,"Square Ambiorix, 1",Bruxelles,actif,?,?,50.84695,4.38273,https://www.google.com/maps/search/?api=1&query=50.84695%2C4.38273
+fontaine_ornementale,Bassin rectangulaire ouest Square Palmerston,standard,Bruxelles,,"Avenue Palmerston, 2",Bruxelles,actif,?,?,50.84688,4.38039,https://www.google.com/maps/search/?api=1&query=50.84688%2C4.38039
+fontaine_ornementale,Fontaine du poète,standard,Bruxelles,,"Avenue Louise, 532",Bruxelles,actif,?,?,50.81504,4.37238,https://www.google.com/maps/search/?api=1&query=50.81504%2C4.37238
+fontaine_ornementale,Fontaine Benelux,standard,Bruxelles,,"Place Saint-Lambert, 38",Bruxelles,actif,?,?,50.89159,4.34455,https://www.google.com/maps/search/?api=1&query=50.89159%2C4.34455
+fontaine_ornementale,Fontaine l'Escaut,standard,Bruxelles,,"Rue de l'Amigo, 2",Bruxelles,actif,?,?,50.84652,4.35153,https://www.google.com/maps/search/?api=1&query=50.84652%2C4.35153
+fontaine_ornementale,Fontaine la Meuse,standard,Bruxelles,,"Rue de l'Amigo, 2",Bruxelles,actif,?,?,50.84641,4.35164,https://www.google.com/maps/search/?api=1&query=50.84641%2C4.35164
+fontaine_ornementale,Fontaine du Manneken Pis,standard,Bruxelles,,"Rue du Chêne, 2",Bruxelles,actif,?,?,50.84499,4.34998,https://www.google.com/maps/search/?api=1&query=50.84499%2C4.34998
+fontaine_ornementale,Fontaine Auguste Orts,standard,Bruxelles,,"Place de la Bourse, 3",Bruxelles,actif,?,?,50.84855,4.34928,https://www.google.com/maps/search/?api=1&query=50.84855%2C4.34928
+fontaine_ornementale,Fontaine Breughelienne les Musiciens,abreuvoir,Bruxelles,,"Rue du Grand Hospice, 7",Bruxelles,actif,?,?,50.85335,4.35007,https://www.google.com/maps/search/?api=1&query=50.85335%2C4.35007
+fontaine_ornementale,Fontaine Breughelienne la Balançoire,abreuvoir,Bruxelles,,"Place du Samedi, 12C",Bruxelles,actif,?,?,50.8517,4.3504,https://www.google.com/maps/search/?api=1&query=50.8517%2C4.3504
+fontaine_ornementale,Fontaine Breughelienne les Aveugles,abreuvoir,Bruxelles,,"Petite rue au Beurre, 17",Bruxelles,actif,?,?,50.84765,4.35145,https://www.google.com/maps/search/?api=1&query=50.84765%2C4.35145
+fontaine_ornementale,Fontaine Breughelienne Saut au Tonneau c,standard,Bruxelles,,"Rue Belliard, 137",Bruxelles,actif,?,?,50.83769,4.37789,https://www.google.com/maps/search/?api=1&query=50.83769%2C4.37789
+fontaine_ornementale,Fontaine plan d'eau KVS,standard,Bruxelles,,"Quai au Foin, 29",Bruxelles,actif,?,?,50.85553,4.35033,https://www.google.com/maps/search/?api=1&query=50.85553%2C4.35033
+fontaine_ornementale,Fontaine Continental,standard,Bruxelles,,"Place De Brouckère, 41",Bruxelles,actif,?,?,50.85181,4.35316,https://www.google.com/maps/search/?api=1&query=50.85181%2C4.35316
+fontaine_ornementale,Fontaine rue aux Choux,standard,Bruxelles,,"Rue des Roses, 6",Bruxelles,actif,?,?,50.85249,4.3566,https://www.google.com/maps/search/?api=1&query=50.85249%2C4.3566
+fontaine_ornementale,Bassin rond Square Ambiorix,standard,Bruxelles,,"Square Ambiorix, 14",Bruxelles,actif,?,?,50.84699,4.38417,https://www.google.com/maps/search/?api=1&query=50.84699%2C4.38417
+fontaine_ornementale,Cinq jets Bois de la Cambre,standard,Bruxelles,,"Avenue du Vivier d'Oie, 4",Bruxelles,actif,?,?,50.80442,4.37835,https://www.google.com/maps/search/?api=1&query=50.80442%2C4.37835
+fontaine_ornementale,Emile Bockstael bassin d'eau est,standard,Bruxelles,,"Boulevard Emile Bockstael, 246A",Bruxelles,actif,?,?,50.87683,4.34786,https://www.google.com/maps/search/?api=1&query=50.87683%2C4.34786
